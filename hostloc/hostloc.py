@@ -73,7 +73,7 @@ def tilou(hostloc_url, hostloc_kouhao, hostloc_user, hostloc_password):
 
     driver = webdriver.PhantomJS(executable_path='./phantomjs/bin/phantomjs', desired_capabilities=dcap)
     driver.set_window_size(1366, 768)
-    driver.implicitly_wait(120)
+    driver.implicitly_wait(60)
     driver.get(hostloc_url)
     driver.find_element_by_id('ls_username').clear()
     driver.find_element_by_id('ls_username').send_keys(hostloc_user)
@@ -96,6 +96,8 @@ if __name__ == '__main__':
 
     if 'http' not in hostloc_url:
         raise ValueError('网址有误！')
+    elif '-1-1.html' not in hostloc_url:
+        raise ValueError('必须是帖子首页,类似：thread-*-1-1.html！')
     if int(hostloc_floor) <= 0:
         raise ValueError('楼层有误！')
     if len(hostloc_kouhao) < 6:

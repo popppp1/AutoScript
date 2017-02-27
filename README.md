@@ -17,6 +17,7 @@
  sudo pip install selenium
  【for Ubuntu/Debian】
  sudo apt-get -y install python-pip
+ sudo apt-get install libfontconfig
  sudo pip install lxml
  sudo pip install selenium
  【run script】
